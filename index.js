@@ -2,8 +2,6 @@
 const inquirer = require('inquirer');
 const jest = require('jest');
 const fs = require('fs');
-//const shapes = require("./lib/shapes");
-
 
 // Create an array of questions for user input
 const questions = [
@@ -16,12 +14,12 @@ const questions = [
             return true;
         }
         return 'Please enter up to 3 text characters:'
-    },
+    }
 },
 {
     type: 'input',
     name: 'textColor',
-    message: 'Enter a color or hexadecimal number for the text:'
+    message: 'Enter a color or hexadecimal number for the text:',
 },
 {
     type: 'list',
