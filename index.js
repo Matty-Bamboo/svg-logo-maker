@@ -43,7 +43,7 @@ function writeToFile(fileName, data) {
           console.error(err);
           return;
         }
-        console.log(`logo file "${fileName}" created successfully!`);
+        console.log(`Generated "${fileName}" created successfully!`);
       });
 }
 
@@ -65,23 +65,23 @@ function generatelogo(answers) {
     switch (shape) {
         case "circle":
           return `
-          <svg viewBox="0 0 100 100">
+          <svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
             <circle cx="50" cy="50" r="40" fill="${shapeColor}" />
-            <text x="50" y="50" font-size="24px" fill="${textColor}">${text}</text>
+            <text x="50" y="50" font-size="24px" text-anchor="middle" fill="${textColor}">${text}</text>
           </svg>
           `;
         case "square":
           return `
-          <svg viewBox="0 0 100 100">
+          <svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
             <rect width="100" height="100" fill="${shapeColor}" />
-            <text x="50" y="50" font-size="24px" fill="${textColor}">${text}</text>
+            <text x="50" y="50" font-size="24px" text-anchor="middle" fill="${textColor}">${text}</text>
           </svg>
           `;
         case "triangle":
           return `
-          <svg viewBox="0 0 100 100">
-            <path d="M50 0 L0 50 A50 50 0 0 1 0 100 L50 50 A50 50 0 0 1 50 0 Z" fill="${shapeColor}" />
-            <text x="50" y="50" font-size="24px" fill="${textColor}"> ${text}</text>
+          <svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="150, 18 244, 182 56, 182" fill="${shapeColor}" />
+            <text x="150" y="135" font-size="40px" text-anchor="middle" fill="${textColor}">${text}</text>
           </svg>
           `;
         default:
