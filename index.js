@@ -54,6 +54,8 @@ function init() {
 }
 
 // Function to generate logo
+const {circle, square, triangle} = require('./lib/shapes')
+
 function generatelogo(answers) {
     const text = answers.text;
     const textColor = answers.textColor;
@@ -62,26 +64,11 @@ function generatelogo(answers) {
 
     switch (shape) {
         case "circle":
-          return `
-          <svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="40" fill="${shapeColor}" />
-            <text x="50" y="50" font-size="24px" text-anchor="middle" fill="${textColor}">${text}</text>
-          </svg>
-          `;
+          logo = new circle(text, textColor, shapeColor).renderShape();
         case "square":
-          return `
-          <svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100" height="100" fill="${shapeColor}" />
-            <text x="50" y="50" font-size="24px" text-anchor="middle" fill="${textColor}">${text}</text>
-          </svg>
-          `;
+          logo = new square(text, textColor, shapeColor).renderShape();
         case "triangle":
-          return `
-          <svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="150, 18 244, 182 56, 182" fill="${shapeColor}" />
-            <text x="150" y="135" font-size="40px" text-anchor="middle" fill="${textColor}">${text}</text>
-          </svg>
-          `;
+          logo = new triangle(text, textColor, shapeColor).renderShape();
         default:
           return null;
       }
