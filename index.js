@@ -2,6 +2,7 @@
 const inquirer = require('inquirer');
 const jest = require('jest');
 const fs = require('fs');
+const {circle, square, triangle} = require('./lib/shapes');
 
 // Create an array of questions for user input
 const questions = [
@@ -23,7 +24,7 @@ const questions = [
 },
 {
     type: 'list',
-    name: 'shapes',
+    name: 'shape',
     message: 'choose a shape for your logo',
     choices: ['circle', 'square', 'triangle'],
 },
@@ -54,24 +55,39 @@ function init() {
 }
 
 // Function to generate logo
-const {circle, square, triangle} = require('./lib/shapes')
+
+const svg = require('./lib/svg');
 
 function generatelogo(answers) {
     const text = answers.text;
     const textColor = answers.textColor;
-    const shape = answers.shapes;
+    const shape = answers.shape;
     const shapeColor = answers.shapeColor;
+    console.log("text", text, "shapeColor", shapeColor, "textColor", textColor);
+
+    let logo;
 
     switch (shape) {
         case "circle":
-          logo = new circle(text, textColor, shapeColor).renderShape();
+          logo = new circle()
+          logo.setColor(shapeColor);
+          break;
         case "square":
-          logo = new square(text, textColor, shapeColor).renderShape();
+          logo = new square()
+          logo.setColor(shapeColor);
+          break;
         case "triangle":
-          logo = new triangle(text, textColor, shapeColor).renderShape();
+          logo = new triangle()
+          logo.setColor(shapeColor);
+          break;
         default:
           return null;
       }
+    
+    //logo.setText(text, textColor);
+
+    const svgCode = logo.getSVG(text);
+    return svgCode;
 }
 
 // Function to call app

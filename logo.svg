@@ -1,6 +1,1 @@
-
-          <svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
-            <rect width="200" height="200" fill="grey" />
-            <text x="100" y="100" font-size="40px" text-anchor="middle" fill="blue">MLS</text>
-          </svg>
-          
+<svg xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="grey" />SVG</svg>
