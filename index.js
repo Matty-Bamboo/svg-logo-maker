@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const jest = require('jest');
 const fs = require('fs');
-const {circle, square, triangle} = require('./lib/shapes');
+const {Circle, Square, Triangle} = require('./lib/shapes');
 
 // Create an array of questions for user input
 const questions = [
@@ -50,44 +50,50 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions).then(function(answers) {
         const logoText = generatelogo(answers);
+      console.log("mysvg",logoText);
+       
         writeToFile('logo.svg', logoText);
     });
 }
 
 // Function to generate logo
 
-const svg = require('./lib/svg');
+const SVG = require('./lib/svg');
 
 function generatelogo(answers) {
     const text = answers.text;
     const textColor = answers.textColor;
     const shape = answers.shape;
     const shapeColor = answers.shapeColor;
-    console.log("text", text, "shapeColor", shapeColor, "textColor", textColor);
+    console.log("text", text, "shapeColor", shapeColor, "textColor", textColor, "shape", shape);
 
     let logo;
 
     switch (shape) {
         case "circle":
-          logo = new circle()
-          logo.setColor(shapeColor);
+          logo = new Circle();
+          //logo.setColor(shapeColor);
           break;
         case "square":
-          logo = new square()
-          logo.setColor(shapeColor);
+          logo = new Square();
+          //logo.setColor(shapeColor);
           break;
         case "triangle":
-          logo = new triangle()
-          logo.setColor(shapeColor);
+          logo = new Triangle();
+          //logo.setColor(shapeColor);
           break;
         default:
           return null;
       }
     
     //logo.setText(text, textColor);
-
-    const svgCode = logo.getSVG(text);
-    return svgCode;
+    logo.setColor(shapeColor);
+     const svg = new SVG();
+     svg.setText( text, textColor);
+     svg.setShape(shape);
+     
+    // const svgCode = logo.getSVG(text);
+    return svg.render();
 }
 
 // Function to call app
