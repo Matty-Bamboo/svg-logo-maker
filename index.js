@@ -50,7 +50,7 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions).then(function(answers) {
         const logoText = generatelogo(answers);
-      console.log("mysvg",logoText);
+      //console.log("mysvg",logoText);
        
         writeToFile('logo.svg', logoText);
     });
@@ -65,7 +65,7 @@ function generatelogo(answers) {
     const textColor = answers.textColor;
     const shape = answers.shape;
     const shapeColor = answers.shapeColor;
-    console.log("text", text, "shapeColor", shapeColor, "textColor", textColor, "shape", shape);
+    console.log("text:", text, "shapeColor:", shapeColor, "textColor:", textColor, "shape:", shape);
 
     let logo;
 

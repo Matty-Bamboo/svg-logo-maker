@@ -1,1 +1,1 @@
-<svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg"><polygon points="150, 18 244, 182 56, 182" fill="purple" /><text x="100" y="100" font-size="40px" text-anchor="middle" fill="yellow">SVG</text></svg>
+<svg version="1.1" width="500" height="500" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="100" fill="Blue" /><text x="100" y="100" font-size="40px" text-anchor="middle" fill="Yellow">SVG</text></svg>
