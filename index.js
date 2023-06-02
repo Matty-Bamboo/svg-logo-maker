@@ -72,27 +72,22 @@ function generatelogo(answers) {
     switch (shape) {
         case "circle":
           logo = new Circle();
-          //logo.setColor(shapeColor);
-          break;
+        break;
         case "square":
           logo = new Square();
-          //logo.setColor(shapeColor);
-          break;
+        break;
         case "triangle":
-          logo = new Triangle();
-          //logo.setColor(shapeColor);
-          break;
+          logo = new Triangle();      
+        break;
         default:
           return null;
       }
-    
-    //logo.setText(text, textColor);
+        
     logo.setColor(shapeColor);
      const svg = new SVG();
      svg.setText( text, textColor);
-     svg.setShape(shape);
-     
-    // const svgCode = logo.getSVG(text);
+     svg.setShape(logo);
+      
     return svg.render();
 }
 
